@@ -40,27 +40,7 @@ Este projeto é uma vitrine virtual desenvolvida para a **Susi Artesanatos**. O 
 - **[Tailwind CSS](https://tailwindcss.com/):** Framework de utilitários CSS para estilização rápida e responsiva.
 - **TypeScript:** Para tipagem estática e segurança do código.## 🚀 Como rodar o projeto localmente
 
-Siga os passos abaixo para baixar e executar o código na sua máquina:
-
-1. **Clone o repositório**
-   ```bash
-   git clone [https://github.com/thiagovsmeireles/SuziArtesanatos.git](https://github.com/thiagovsmeireles/SuziArtesanatos.git)
-Entre na pasta do projeto
-
-Bash
-
-cd SuziArtesanatos
-Instale as dependências
-
-Bash
-
-npm install
-Rode o servidor de desenvolvimento
-
-Bash
-
-npm run dev
-O projeto estará rodando em http://localhost:5173.
+---
 
 ## 📂 Estrutura do Projeto
 
@@ -80,5 +60,37 @@ src/
 ├── data/                # Mock de dados e configurações da loja
 ├── lib/                 # Funções utilitárias e lógica compartilhada
 └── public/              # Assets estáticos (Logo, Uploads)
+🛠️ Tecnologias Utilizadas
+Next.js: Framework React para produção.
+
+React: Biblioteca para construção da interface.
+
+Tailwind CSS: Estilização rápida e responsiva.
+
+TypeScript: Tipagem estática para segurança do código.
+
+🚀 Como rodar o projeto localmente
+Clone o repositório
+
+Bash
+
+git clone [https://github.com/thiagovsmeireles/SuziArtesanatos.git](https://github.com/thiagovsmeireles/SuziArtesanatos.git)
+Entre na pasta do projeto
+
+Bash
+
+cd SuziArtesanatos
+Instale as dependências
+
+Bash
+
+npm install
+Rode o servidor de desenvolvimento
+
+Bash
+
+npm run dev
+O projeto estará rodando em http://localhost:3000.
+
 👨‍💻 Autor
 Desenvolvido por Thiago Meireles.
