@@ -9,9 +9,11 @@
 ---
 
 ## 🖼️ Preview do Projeto
-![1764460025844](https://github.com/user-attachments/assets/3d703054-7650-4d9a-b12b-8f607900d01d)
-![1764460025859](https://github.com/user-attachments/assets/36d29a5d-b365-4f8c-8c6c-cb515d1bc362)
-![1764460025872](https://github.com/user-attachments/assets/e060926c-085e-451f-a42c-1ba698a2d99d)
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/3d703054-7650-4d9a-b12b-8f607900d01d" width="250" />
+  <img src="https://github.com/user-attachments/assets/36d29a5d-b365-4f8c-8c6c-cb515d1bc362" width="250" />
+  <img src="https://github.com/user-attachments/assets/e060926c-085e-451f-a42c-1ba698a2d99d" width="250" />
+</div>
 
 
 
