@@ -6,6 +6,15 @@
 [![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white)](https://nextjs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
+---
+
+## 🖼️ Preview do Projeto
+![1764460025844](https://github.com/user-attachments/assets/3d703054-7650-4d9a-b12b-8f607900d01d)
+![1764460025859](https://github.com/user-attachments/assets/36d29a5d-b365-4f8c-8c6c-cb515d1bc362)
+![1764460025872](https://github.com/user-attachments/assets/e060926c-085e-451f-a42c-1ba698a2d99d)
+
+
+
 
 ---
 
@@ -51,14 +60,23 @@ Bash
 npm run dev
 O projeto estará rodando em http://localhost:5173.
 
-📂 Estrutura de Pastas
-A estrutura do código foi organizada visando escalabilidade e manutenção:
+## 📂 Estrutura do Projeto
 
+O projeto segue a arquitetura do **Next.js 13+ (App Router)**:
+
+```text
 src/
-  ├── assets/      # Imagens e ícones
-  ├── components/  # Componentes reutilizáveis (Header, Card, Footer)
-  ├── data/        # Dados mockados dos produtos (JSON/Array)
-  ├── App.jsx      # Componente principal
-  └── main.jsx     # Ponto de entrada
+├── app/
+│   ├── admin/           # Painel administrativo (protegido)
+│   ├── login/           # Autenticação
+│   ├── produtos/
+│   │   └── [slug]/      # Página dinâmica de detalhes do produto
+│   └── page.tsx         # Página Inicial (Landing Page)
+├── components/
+│   ├── ui/              # Componentes de Interface (Cards, Filtros, Hero)
+│   └── WhatsApp...      # Formulário de integração com API do Whats
+├── data/                # Mock de dados e configurações da loja
+├── lib/                 # Funções utilitárias e lógica compartilhada
+└── public/              # Assets estáticos (Logo, Uploads)
 👨‍💻 Autor
 Desenvolvido por Thiago Meireles.
