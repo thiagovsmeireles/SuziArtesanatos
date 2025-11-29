@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-rose: 244 182 194;
+  --brand-purple: 155 93 229;
+  --brand-yellow: 249 199 79;
+}
+
+body {
+  @apply bg-white text-gray-900;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center rounded-md px-4 py-2 font-medium transition-colors;
+}
+
+.btn-primary {
+  @apply bg-brand-purple text-white hover:bg-purple-700 shadow-sm;
+}
+
+.btn-secondary {
+  @apply bg-gray-100 text-gray-900 hover:bg-gray-200;
+}
+
+.btn-destructive {
+  @apply bg-red-600 text-white hover:bg-red-700;
+}
+
+.card {
+  @apply rounded-lg border bg-white shadow-sm;
+}
+
+.card-header {
+  @apply border-b px-4 py-3;
+}
+
+.card-title {
+  @apply text-base font-semibold;
+}
+
+.card-body {
+  @apply p-4;
+}
+
+.input {
+  @apply w-full rounded border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-purple/40;
+}
+
+.label {
+  @apply block text-sm font-medium text-gray-700;
+}
+
+.table {
+  @apply w-full text-sm;
+}
+
+.table thead tr {
+  @apply border-b bg-gray-50;
+}
+
+.table th {
+  @apply p-2 text-left font-medium text-gray-600;
+}
+
+.table td {
+  @apply p-2;
+}
+
+.badge {
+  @apply inline-flex items-center rounded bg-gray-100 px-2 py-1 text-xs font-medium text-gray-700;
+}
+
+.badge-success {
+  @apply bg-green-100 text-green-700;
+}
+
+.badge-muted {
+  @apply bg-gray-100 text-gray-700;
+}
+
+.container {
+  @apply mx-auto max-w-7xl px-4;
+}
