@@ -71,9 +71,6 @@ TypeScript: Tipagem estática para segurança do código.
 
 ---
 
-🚀 Como rodar o projeto localmente
-Clone o repositório
-
 ## 🚀 Como rodar o projeto localmente
 
 1. **Clone o repositório**
