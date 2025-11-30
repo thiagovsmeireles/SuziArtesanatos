@@ -69,6 +69,8 @@ Tailwind CSS: Estilização rápida e responsiva.
 
 TypeScript: Tipagem estática para segurança do código.
 
+---
+
 🚀 Como rodar o projeto localmente
 Clone o repositório
 
