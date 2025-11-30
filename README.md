@@ -63,14 +63,6 @@ src/
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
-
-- **[Next.js](https://nextjs.org/):** Framework React para produção.
-- **[React](https://reactjs.org/):** Biblioteca para construção da interface.
-- **[Tailwind CSS](https://tailwindcss.com/):** Estilização rápida e responsiva.
-- **TypeScript:** Tipagem estática para segurança do código.
-
----
 
 ## 🚀 Como rodar o projeto localmente
 
