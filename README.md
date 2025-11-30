@@ -60,6 +60,7 @@ src/
 ├── data/                # Mock de dados e configurações da loja
 ├── lib/                 # Funções utilitárias e lógica compartilhada
 └── public/              # Assets estáticos (Logo, Uploads)
+```
 
 ---
 
