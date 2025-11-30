@@ -60,14 +60,15 @@ src/
 ├── data/                # Mock de dados e configurações da loja
 ├── lib/                 # Funções utilitárias e lógica compartilhada
 └── public/              # Assets estáticos (Logo, Uploads)
-🛠️ Tecnologias Utilizadas
-Next.js: Framework React para produção.
 
-React: Biblioteca para construção da interface.
+---
 
-Tailwind CSS: Estilização rápida e responsiva.
+## 🛠️ Tecnologias Utilizadas
 
-TypeScript: Tipagem estática para segurança do código.
+- **[Next.js](https://nextjs.org/):** Framework React para produção.
+- **[React](https://reactjs.org/):** Biblioteca para construção da interface.
+- **[Tailwind CSS](https://tailwindcss.com/):** Estilização rápida e responsiva.
+- **TypeScript:** Tipagem estática para segurança do código.
 
 ---
 
@@ -76,6 +77,7 @@ TypeScript: Tipagem estática para segurança do código.
 1. **Clone o repositório**
    ```bash
    git clone [https://github.com/thiagovsmeireles/SuziArtesanatos.git](https://github.com/thiagovsmeireles/SuziArtesanatos.git)
+
 
 2. **Entre na pasta do projetos**
    ```bash
