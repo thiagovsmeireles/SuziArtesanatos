@@ -72,22 +72,26 @@ TypeScript: Tipagem estática para segurança do código.
 🚀 Como rodar o projeto localmente
 Clone o repositório
 
-Bash
+## 🚀 Como rodar o projeto localmente
 
-git clone [https://github.com/thiagovsmeireles/SuziArtesanatos.git](https://github.com/thiagovsmeireles/SuziArtesanatos.git)
-Entre na pasta do projeto
+1. **Clone o repositório**
+   ```bash
+   git clone [https://github.com/thiagovsmeireles/SuziArtesanatos.git](https://github.com/thiagovsmeireles/SuziArtesanatos.git)
 
-Bash
+2. **Entre na pasta do projetos**
+   ```bash
 
 cd SuziArtesanatos
 Instale as dependências
 
-Bash
+3. **Instale as dependências**
+   ```bash
 
 npm install
 Rode o servidor de desenvolvimento
 
-Bash
+4. **Rode o servidor de desenvolvimento**
+   ```bash
 
 npm run dev
 O projeto estará rodando em http://localhost:3000.
