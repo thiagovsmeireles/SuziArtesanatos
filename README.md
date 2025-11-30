@@ -74,21 +74,18 @@ src/
 
 2. **Entre na pasta do projetos**
    ```bash
-
 cd SuziArtesanatos
 ```
 Instale as dependências
 
 3. **Instale as dependências**
    ```bash
-
 npm install
 ```
 Rode o servidor de desenvolvimento
 
 4. **Rode o servidor de desenvolvimento**
    ```bash
-
 npm run dev
 ```
 
