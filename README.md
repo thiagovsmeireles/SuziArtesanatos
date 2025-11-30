@@ -69,7 +69,7 @@ src/
 
 1. **Clone o repositório**
    ```bash
-   git clone [https://github.com/thiagovsmeireles/SuziArtesanatos.git](https://github.com/thiagovsmeireles/SuziArtesanatos.git)
+   git clone https://github.com/thiagovsmeireles/SuziArtesanatos.git
 
 
 2. **Entre na pasta do projetos**
