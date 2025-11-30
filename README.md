@@ -70,22 +70,22 @@ src/
 1. **Clone o repositório**
    ```bash
    git clone https://github.com/thiagovsmeireles/SuziArtesanatos.git
-```
+   ```
 
 2. **Entre na pasta do projetos**
    ```bash
 cd SuziArtesanatos
-```
+   ```
 
 3. **Instale as dependências**
    ```bash
 npm install
-```
+   ```
 
 4. **Rode o servidor de desenvolvimento**
    ```bash
 npm run dev
-```
+   ```
 
 O projeto estará rodando em http://localhost:3000.
 
