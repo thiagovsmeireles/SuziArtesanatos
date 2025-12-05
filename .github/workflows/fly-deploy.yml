@@ -1,30 +1,55 @@
-name: Fly Deploy
+# Nome do Workflow
+name: 🚀 Deploy Suzi Artesanatos para Fly.io
 
+# Define quando este workflow será executado
 on:
+  # Executa toda vez que houver um push para a branch 'main'
   push:
-    branches:
-      - main  # branch principal do seu projeto
+    branches: ["main"]
+  # Permite executar manualmente a partir da interface do GitHub Actions
+  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Puxa o código do repositório
-      - uses: actions/checkout@v3
+      # 1. Puxa o código do repositório (Necessário para Fly.io ler o fly.toml e o Dockerfile)
+      - name: 📦 Checkout do Repositório
+        uses: actions/checkout@v4
 
-      # 2️⃣ Instala Fly CLI
-      - name: Install Fly CLI
-        run: curl -L https://fly.io/install.sh | sh
+      # 2. Configura o Node.js
+      - name: ⚙️ Configurar Node.js (v20)
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          
+      # 3. Cache de dependências (Opcional, mas acelera o processo)
+      - name: ⚡ Restaurar Cache de npm
+        id: cache-npm
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-      # 3️⃣ Autentica no Fly usando o token do GitHub Secrets
-      - name: Fly Auth
-        run: fly auth token ${{ secrets.FLY_API_TOKEN }}
+      # 4. Instalar dependências (apenas se não houver cache)
+      - name: Instalar Dependências
+        if: steps.cache-npm.outputs.cache-hit != 'true'
+        run: npm ci
 
-      # 4️⃣ Deploy com Docker + variáveis de ambiente
-      - name: Deploy to Fly.io
-        run: fly deploy --remote-only
+      # 5. Build e Deploy (A Action oficial faz a autenticação com o FLY_API_TOKEN)
+      - name: 🚀 Fazer Deploy no Fly.io
+        uses: superfly/flyctl-actions/deploy@master
+        with:
+          # A Action usará o fly.toml e o Dockerfile
+          args: deploy
         env:
+          # 🚨 SECRETS DO GITHUB:
+          # O token de API Fly.io (para autenticação)
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }} 
+          
+          # Variáveis de Ambiente da sua aplicação (Admin e Senha)
           ADMIN_USER: ${{ secrets.ADMIN_USER }}
           ADMIN_PASS: ${{ secrets.ADMIN_PASS }}
-          NODE_ENV: production
