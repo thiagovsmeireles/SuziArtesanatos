@@ -1,12 +1,10 @@
 # Nome do Workflow
 name: 🚀 Deploy Suzi Artesanatos para Fly.io
 
-# Define quando este workflow será executado
+# Define quando este workflow será executado (ao fazer push na branch 'main')
 on:
-  # Executa toda vez que houver um push para a branch 'main'
   push:
     branches: ["main"]
-  # Permite executar manualmente a partir da interface do GitHub Actions
   workflow_dispatch:
 
 jobs:
@@ -14,42 +12,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Puxa o código do repositório (Necessário para Fly.io ler o fly.toml e o Dockerfile)
+      # 1. Puxa o código do repositório (Necessário para acessar fly.toml e Dockerfile)
       - name: 📦 Checkout do Repositório
         uses: actions/checkout@v4
-
-      # 2. Configura o Node.js
-      - name: ⚙️ Configurar Node.js (v20)
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          
-      # 3. Cache de dependências (Opcional, mas acelera o processo)
-      - name: ⚡ Restaurar Cache de npm
-        id: cache-npm
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      # 4. Instalar dependências (apenas se não houver cache)
-      - name: Instalar Dependências
-        if: steps.cache-npm.outputs.cache-hit != 'true'
-        run: npm ci
-
-      # 5. Build e Deploy (A Action oficial faz a autenticação com o FLY_API_TOKEN)
+        
+      # 2. Build e Deploy para o Fly.io usando a Action oficial
       - name: 🚀 Fazer Deploy no Fly.io
         uses: superfly/flyctl-actions/deploy@master
         with:
-          # A Action usará o fly.toml e o Dockerfile
-          args: deploy
+          # Argumento crucial: Força o uso do seu Dockerfile, contornando a falha de 'launch manifest'.
+          args: deploy --dockerfile ./Dockerfile 
         env:
-          # 🚨 SECRETS DO GITHUB:
-          # O token de API Fly.io (para autenticação)
+          # Autenticação no Fly.io (Obrigatório)
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }} 
           
-          # Variáveis de Ambiente da sua aplicação (Admin e Senha)
+          # Variáveis de Ambiente injetadas na sua aplicação Next.js
           ADMIN_USER: ${{ secrets.ADMIN_USER }}
           ADMIN_PASS: ${{ secrets.ADMIN_PASS }}
