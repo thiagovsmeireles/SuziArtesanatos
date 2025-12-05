@@ -1,10 +1,11 @@
 import type { Config } from "tailwindcss";
+import daisyui from "daisyui";
 
-export default {
+const config: Config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx}",
-    "./src/components/**/*.{js,ts,jsx,tsx}",
-    "./src/app/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -17,5 +18,10 @@ export default {
       },
     },
   },
-  plugins: [],
-} satisfies Config;
+  plugins: [daisyui],
+  daisyui: {
+    themes: false, // desativa temas automáticos se quiser
+  },
+};
+
+export default config;
