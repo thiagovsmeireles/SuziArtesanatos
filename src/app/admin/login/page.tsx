@@ -5,8 +5,8 @@ async function login(formData: FormData) {
   "use server";
   const user = formData.get("user")?.toString() || "";
   const pass = formData.get("pass")?.toString() || "";
-  const ADMIN_USER = process.env.ADMIN_USER || "susi";
-  const ADMIN_PASS = process.env.ADMIN_PASS || "artesanato123";
+  const ADMIN_USER = process.env.ADMIN_USER || "default_user";
+const ADMIN_PASS = process.env.ADMIN_PASS || "default_pass";
   if (user === ADMIN_USER && pass === ADMIN_PASS) {
     cookies().set("admin_auth", "1", {
       httpOnly: true,
