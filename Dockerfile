@@ -1,24 +1,19 @@
-# Escolhe imagem Node.js
 FROM node:20-alpine
 
-# Define diretório de trabalho
 WORKDIR /app
 
-# Copia arquivos de package
+# Copia package.json + lockfile
 COPY package*.json ./
-COPY tsconfig.json ./
 
 # Instala dependências
-RUN npm install
+RUN npm ci
 
-# Copia todo o código
+# Copia todos os arquivos
 COPY . .
 
-# Build do Next.js
+# Build
 RUN npm run build
 
-# Expõe a porta que o Fly.io vai usar
 EXPOSE 3000
 
-# Comando para iniciar o servidor Next.js
 CMD ["npm", "start"]
