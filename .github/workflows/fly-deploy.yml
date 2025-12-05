@@ -40,12 +40,12 @@ jobs:
         run: npm ci
 
       # 5. Build, Push e Deploy para o Fly.io usando a action oficial
-      # ESTA ÚNICA ETAPA substitui seus passos 2, 3 e 4.
       - name: 🚀 Fazer Deploy no Fly.io
-        uses: superfly/flyctl-actions/deploy@master
+        # CORRIGIDO: Removido o '/deploy' para usar a Action principal
+        uses: superfly/flyctl-actions@master
         with:
-          # O argumento 'deploy' usa seu fly.toml e Dockerfile
-          args: deploy
+          # CORRIGIDO: Forçando o uso do Dockerfile para evitar o erro de 'launch manifest'
+          args: deploy --dockerfile ./Dockerfile
         env:
           # 🚨 SECRETS CRUCIAIS:
           # A action usa este token para se autenticar e fazer o deploy
