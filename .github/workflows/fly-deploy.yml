@@ -2,28 +2,29 @@ name: Fly Deploy
 
 on:
   push:
-    branches: 
-      - main  # ou a branch que você usa
+    branches:
+      - main  # branch principal do seu projeto
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Pega o código do repositório
+      # 1️⃣ Puxa o código do repositório
       - uses: actions/checkout@v3
 
       # 2️⃣ Instala Fly CLI
       - name: Install Fly CLI
         run: curl -L https://fly.io/install.sh | sh
 
-      # 3️⃣ Autentica no Fly usando token do GitHub Secrets
+      # 3️⃣ Autentica no Fly usando o token do GitHub Secrets
       - name: Fly Auth
         run: fly auth token ${{ secrets.FLY_API_TOKEN }}
 
-      # 4️⃣ Deploy
+      # 4️⃣ Deploy com Docker + variáveis de ambiente
       - name: Deploy to Fly.io
         run: fly deploy --remote-only
         env:
           ADMIN_USER: ${{ secrets.ADMIN_USER }}
           ADMIN_PASS: ${{ secrets.ADMIN_PASS }}
+          NODE_ENV: production
