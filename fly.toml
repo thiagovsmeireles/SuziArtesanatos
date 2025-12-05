@@ -1,0 +1,21 @@
+app = "suziartesanatos"
+primary_region = "gru"
+
+[build]
+  image = "node:20-alpine"
+
+[env]
+  NODE_ENV = "production"
+  NEXT_PUBLIC_BASE_URL = "https://suziartesanatos.fly.dev"
+
+[[services]]
+  internal_port = 3000
+  protocol = "tcp"
+
+  [[services.ports]]
+    port = 80
+    handlers = ["http"]
+
+  [[services.ports]]
+    port = 443
+    handlers = ["tls", "http"]
