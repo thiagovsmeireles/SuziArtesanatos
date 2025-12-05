@@ -14,45 +14,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # 1. Puxa o código do repositório (Usando a versão mais atual @v4)
+      # 1. Puxa o código do repositório (Necessário para acessar fly.toml e Dockerfile)
       - name: 📦 Checkout do Repositório
         uses: actions/checkout@v4
-
-      # 2. Configura o Node.js
-      - name: ⚙️ Configurar Node.js (v20)
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-
-      # 3. Opcional, mas acelera: cache de dependências
-      - name: ⚡ Restaurar Cache de npm
-        id: cache-npm
-        uses: actions/cache@v4
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      # 4. Instalar dependências (se o cache falhar)
-      - name: Instalar Dependências
-        if: steps.cache-npm.outputs.cache-hit != 'true'
-        run: npm ci
-
-      # 5. Build, Push e Deploy para o Fly.io usando a action oficial
+        
+      # 2. Build e Deploy para o Fly.io usando a action oficial
+      # O Dockerfile fará a instalação das dependências (npm ci) e o build, 
+      # ignorando o erro de dependência que ocorreu no runner.
       - name: 🚀 Fazer Deploy no Fly.io
-        # CORRIGIDO: Removido o '/deploy' para usar a Action principal
         uses: superfly/flyctl-actions@master
         with:
-          # CORRIGIDO: Forçando o uso do Dockerfile para evitar o erro de 'launch manifest'
+          # Forçando o uso do Dockerfile
           args: deploy --dockerfile ./Dockerfile
         env:
           # 🚨 SECRETS CRUCIAIS:
-          # A action usa este token para se autenticar e fazer o deploy
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }} 
           
           # Estes são injetados na sua aplicação Next.js
           ADMIN_USER: ${{ secrets.ADMIN_USER }}
           ADMIN_PASS: ${{ secrets.ADMIN_PASS }}
-          # NODE_ENV já está em fly.toml, mas se precisar, pode pôr aqui também:
           NODE_ENV: production
