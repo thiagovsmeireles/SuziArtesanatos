@@ -2,13 +2,11 @@ app = "suziartesanatos"
 primary_region = "gru"
 
 [build]
-  dockerfile = "./Dockerfile"   # ⚠️ usar Dockerfile, não image
+  dockerfile = "./Dockerfile"
 
 [env]
   NODE_ENV = "production"
   NEXT_PUBLIC_BASE_URL = "https://suziartesanatos.fly.dev"
-  ADMIN_USER = "susi"
-  ADMIN_PASS = "artesanato123"
 
 [[services]]
   internal_port = 3000
